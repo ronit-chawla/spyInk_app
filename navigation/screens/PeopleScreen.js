@@ -3,13 +3,15 @@ import {
 	Text,
 	TextInput,
 	StyleSheet,
-	Button
+	Button,
+	FlatList
 } from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
 import Colours from '../../Colours';
 import Card from '../../components/Card';
 import { LinearGradient } from 'expo-linear-gradient';
+import moment from 'moment';
 
 const PeopleScreen = () => {
 	const [
@@ -17,8 +19,8 @@ const PeopleScreen = () => {
 		setName
 	] = useState('');
 	const [
-		person,
-		setPerson
+		people,
+		setPeople
 	] = useState();
 	const getPeople = async () => {
 		const {
@@ -32,61 +34,73 @@ const PeopleScreen = () => {
 				}
 			}
 		);
-		setPerson(data[0]);
+		console.log(data);
+		setPeople(data);
 	};
 	return (
-		<LinearGradient
-			colors={[
-				'#7785FF',
-				'#0012AD'
-			]}
-			style={styles.background}
-		>
-			<View style={styles.screen}>
-				<View style={styles.formControl}>
-					<TextInput
-						label="Name"
-						style={styles.input}
-						value={name}
-						onChangeText={val => setName(val)}
-						placeholder="Name"
-					/>
-					<Button
-						title="Search"
-						color={Colours.primary}
-						style={{ marginVertical: 40 }}
-						onPress={getPeople}
-					/>
-				</View>
+		// <LinearGradient
+		// colors={[
+		// 		'#7785FF',
+		// 		'#0012AD'
+		// 	]}
+		// 	style={styles.background}
+		// >
+		<View style={styles.screen}>
+			<View style={styles.formControl}>
+				<TextInput
+					label="Name"
+					style={styles.input}
+					value={name}
+					onChangeText={val => setName(val)}
+					placeholder="Name"
+					placeholderTextColor="#aaa"
+				/>
+				<Button
+					title="Search"
+					color={Colours.highlight}
+					style={{ marginVertical: 40 }}
+					onPress={getPeople}
+				/>
 			</View>
-			{person && (
-				<Card style={{ marginBottom: 100 }}>
-					<Text style={styles.text} e>
-						{person.name}
-					</Text>
-					<Text style={styles.text}>
-						DOB: {person.birthday}
-					</Text>
-					<Text style={styles.text}>
-						Net Worth:
-						{person.net_worth}
-					</Text>
-					<Text style={styles.text}>
-						Gender: {person.gender}
-					</Text>
-					<Text style={styles.text}>
-						Nationality: {person.nationality}
-					</Text>
-					<Text style={styles.text}>
-						Height: {person.height}
-					</Text>
-					<Text style={styles.text}>
-						Occupation:{' '}
-						{person.occupation.join(', ')}
-					</Text>
-				</Card>
+			{people && (
+				<FlatList
+					data={people}
+					style={{ width: 400 }}
+					renderItem={({ item: person }) => {
+						return (
+							<Card
+								style={{ marginBottom: 10 }}
+							>
+								<Text style={styles.text} e>
+									{person.name}
+								</Text>
+								<Text style={styles.text}>
+									DOB: {person.birthday}
+								</Text>
+								<Text style={styles.text}>
+									Net Worth:
+									{person.net_worth}
+								</Text>
+								<Text style={styles.text}>
+									Gender: {person.gender}
+								</Text>
+								<Text style={styles.text}>
+									Nationality:{' '}
+									{person.nationality}
+								</Text>
+								<Text style={styles.text}>
+									Height: {person.height}
+								</Text>
+								<Text style={styles.text}>
+									Occupation:{' '}
+									{person.occupation.join(', ')}
+								</Text>
+							</Card>
+						);
+					}}
+				/>
 			)}
-		</LinearGradient>
+		</View>
 	);
 };
 const styles = StyleSheet.create({
@@ -95,7 +109,8 @@ const styles = StyleSheet.create({
 		justifyContent    : 'space-between',
 		paddingVertical   : 100,
 		paddingHorizontal : 40,
-		alignItems        : 'flex-start'
+		alignItems        : 'flex-start',
+		backgroundColor   : Colours.primary
 	},
 	background  : {
 		position : 'absolute',
@@ -110,7 +125,7 @@ const styles = StyleSheet.create({
 		borderBottomColor : '#ccc',
 		borderBottomWidth : 2,
 		fontSize          : 20,
-		color             : Colours.secondary,
+		color             : '#ccc',
 		width             : '100%'
 	},
 	formControl : {

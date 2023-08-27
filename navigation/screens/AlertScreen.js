@@ -4,7 +4,8 @@ import {
 	TextInput,
 	View,
 	Text,
-	ScrollView
+	ScrollView,
+	FlatList
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
@@ -36,18 +37,17 @@ const AlertScreen = () => {
 	};
 	getData();
 	return (
-		<LinearGradient
-			colors={[
-				'#7785FF',
-				'#0012AD'
-			]}
-			style={styles.background}
+		<View
+			style={{
+				backgroundColor : Colours.primary,
+				flex            : 1
+			}}
 		>
 			<View style={styles.icon}>
 				<Ionicons
 					name="warning-outline"
 					size={200}
-					color={Colours.primary}
+					color={Colours.highlight}
 				/>
 			</View>
 			<View style={styles.formControl}>
@@ -57,6 +57,7 @@ const AlertScreen = () => {
 					value={msg}
 					onChangeText={val => setMsg(val)}
 					placeholder="Enter Alert Message"
+					placeholderTextColor="#aaa"
 				/>
 				<Button
 					title="SEND"
@@ -64,17 +65,47 @@ const AlertScreen = () => {
 					onPress={sendAlert}
 				/>
 			</View>
-			{alerts.forEach(({ msg, date }) => {
-				return (
-        <>
-						<Text>{msg}</Text>
-						<Text>
-							{moment(date, 'MM-DD-YYYY')}
-						</Text>
-          </>
-				);
-			})}
-		</LinearGradient>
+			{alerts && (
+				<FlatList
+					style={{
+						position : 'absolute',
+						top      : 300,
+						margin   : 40
+					}}
+					data={alerts}
+					renderItem={({ item: alert }) => {
+						return (
+							<View
+								style={{
+									marginBottom      : 10,
+									borderBottomColor :
+										Colours.secondary,
+									borderBottomWidth : 2,
+									paddingVertical   : 10
+								}}
+							>
+								<Text
+									style={{
+										color    : '#f00',
+										fontSize : 24
+									}}
+								>
+									{alert.msg}
+								</Text>
+								<Text
+									style={{
+										color :
+											Colours.highlight
+									}}
+								>
+									{alert.date}
+								</Text>
+							</View>
+						);
+					}}
+				/>
+			)}
+		</View>
 	);
 };
 
@@ -90,7 +121,7 @@ const styles = StyleSheet.create({
 	},
 	icon        : {
 		position : 'absolute',
-		left     : 100
+		left     : 120
 	},
 	input       : {
 		paddingHorizontal : 2,
@@ -99,7 +130,7 @@ const styles = StyleSheet.create({
 		borderBottomColor : '#ccc',
 		borderBottomWidth : 2,
 		fontSize          : 20,
-		color             : Colours.secondary,
+		color             : '#fff',
 		width             : '80%'
 	},
 	formControl : {

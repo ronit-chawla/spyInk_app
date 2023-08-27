@@ -32,14 +32,14 @@ function TabNav() {
 				},
 				style           : {
 					padding         : 10,
-					backgroundColor : Colours.primary,
+					backgroundColor : Colours.secondary,
 					height          : '1%'
 				},
 				tabBarStyle     : {
-					backgroundColor : Colours.primary,
+					backgroundColor : Colours.secondary,
 					height          : '10%'
 				},
-				backgroundColor : Colours.primary,
+				backgroundColor : Colours.secondary,
 				tabBarIcon      : ({
 					focused,
 					color,
@@ -108,7 +108,7 @@ function MainContainer() {
 								backgroundColor   :
 									route.name === 'home'
 										? Colours.secondary
-										: Colours.primary,
+										: Colours.secondary,
 								paddingHorizontal : 40,
 								paddingTop        : 50,
 								paddingBottom     : 20

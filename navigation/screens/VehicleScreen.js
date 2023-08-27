@@ -37,32 +37,26 @@ const VehicleScreen = () => {
 	};
 
 	return (
-		<LinearGradient
-			colors={[
-				'#7785FF',
-				'#0012AD'
-			]}
-			style={styles.background}
-		>
-			<View style={styles.screen}>
-				<View style={styles.formControl}>
-					<TextInput
-						label="VIN"
-						style={styles.input}
-						value={vin}
-						onChangeText={val => setVin(val)}
-						placeholder="Vehicle Identification Number"
-					/>
-					<Button
-						title="Search"
-						color={Colours.primary}
-						style={{ marginVertical: 40 }}
-						onPress={getVehicle}
-					/>
-				</View>
+		<View style={styles.screen}>
+			<View style={styles.formControl}>
+				<TextInput
+					label="VIN"
+					style={styles.input}
+					value={vin}
+					onChangeText={val => setVin(val)}
+					placeholder="Vehicle Identification Number"
+					placeholderTextColor="#aaa"
+				/>
+				<Button
+					title="Search"
+					color={Colours.highlight}
+					style={{ marginVertical: 40 }}
+					onPress={getVehicle}
+				/>
 			</View>
+
 			{vehicle && (
-				<Card style={{ marginBottom: 100 }}>
+				<Card style={{ margin: 30 }}>
 					<Text style={styles.text} e>
 						Manufacturer: {vehicle.manufacturer}
 					</Text>
@@ -78,7 +72,7 @@ const VehicleScreen = () => {
 					</Text>
 				</Card>
 			)}
-		</LinearGradient>
+		</View>
 	);
 };
 
@@ -88,7 +82,8 @@ const styles = StyleSheet.create({
 		justifyContent    : 'space-between',
 		paddingVertical   : 100,
 		paddingHorizontal : 40,
-		alignItems        : 'flex-start'
+		alignItems        : 'flex-start',
+		backgroundColor   : Colours.primary
 	},
 	background  : {
 		position : 'absolute',
@@ -103,7 +98,7 @@ const styles = StyleSheet.create({
 		borderBottomColor : '#ccc',
 		borderBottomWidth : 2,
 		fontSize          : 20,
-		color             : Colours.secondary,
+		color             : '#fff',
 		width             : '100%'
 	},
 	formControl : {

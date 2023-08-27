@@ -40,39 +40,34 @@ const GeocodeScreen = () => {
 		setLoc(data[0]);
 	};
 	return (
-		<LinearGradient
-			colors={[
-				'#7785FF',
-				'#0012AD'
-			]}
-			style={styles.background}
-		>
-			<View style={styles.screen}>
-				<View style={styles.formControl}>
-					<TextInput
-						label="Latitude"
-						style={styles.input}
-						value={lat}
-						onChangeText={val => setLat(val)}
-						placeholder="Latitude"
-					/>
-					<TextInput
-						label="Longitude"
-						value={lng}
-						style={styles.input}
-						onChangeText={val => setLng(val)}
-						placeholder="Longitude"
-					/>
-					<Button
-						title="Search"
-						color={Colours.primary}
-						style={{ marginVertical: 40 }}
-						onPress={getLoc}
-					/>
-				</View>
+		<View style={styles.screen}>
+			<View style={styles.formControl}>
+				<TextInput
+					label="Latitude"
+					style={styles.input}
+					value={lat}
+					onChangeText={val => setLat(val)}
+					placeholder="Latitude"
+					placeholderTextColor="#aaa"
+				/>
+				<TextInput
+					label="Longitude"
+					value={lng}
+					style={styles.input}
+					onChangeText={val => setLng(val)}
+					placeholder="Longitude"
+					placeholderTextColor="#aaa"
+				/>
+				<Button
+					title="Search"
+					color={Colours.highlight}
+					style={{ marginVertical: 40 }}
+					onPress={getLoc}
+				/>
 			</View>
+
 			{loc && (
-				<Card style={{ marginBottom: 100 }}>
+				<Card style={{ margin: 30 }}>
 					<Text style={styles.text} e>
 						{loc.name}
 					</Text>
@@ -84,7 +79,7 @@ const GeocodeScreen = () => {
 					</Text>
 				</Card>
 			)}
-		</LinearGradient>
+		</View>
 	);
 };
 
@@ -94,7 +89,8 @@ const styles = StyleSheet.create({
 		justifyContent    : 'space-between',
 		paddingVertical   : 100,
 		paddingHorizontal : 40,
-		alignItems        : 'flex-start'
+		alignItems        : 'flex-start',
+		backgroundColor   : Colours.primary
 	},
 	background  : {
 		position : 'absolute',
@@ -109,7 +105,7 @@ const styles = StyleSheet.create({
 		borderBottomColor : '#ccc',
 		borderBottomWidth : 2,
 		fontSize          : 20,
-		color             : Colours.secondary,
+		color             : '#fff',
 		width             : '100%'
 	},
 	formControl : {

@@ -35,32 +35,26 @@ const BankScreen = () => {
 		setBank(data);
 	};
 	return (
-		<LinearGradient
-			colors={[
-				'#7785FF',
-				'#0012AD'
-			]}
-			style={styles.background}
-		>
-			<View style={styles.screen}>
-				<View style={styles.formControl}>
-					<TextInput
-						label="IBAN"
-						style={styles.input}
-						value={IBAN}
-						onChangeText={val => setIBAN(val)}
-						placeholder="IBAN"
-					/>
-					<Button
-						title="Search"
-						color={Colours.primary}
-						style={{ marginVertical: 40 }}
-						onPress={getBank}
-					/>
-				</View>
+		<View style={styles.screen}>
+			<View style={styles.formControl}>
+				<TextInput
+					label="IBAN"
+					style={styles.input}
+					value={IBAN}
+					onChangeText={val => setIBAN(val)}
+					placeholder="IBAN"
+					placeholderTextColor="#aaa"
+				/>
+				<Button
+					title="Search"
+					color={Colours.highlight}
+					style={{ marginVertical: 40 }}
+					onPress={getBank}
+				/>
 			</View>
+
 			{bank && (
-				<Card style={{ marginBottom: 100 }}>
+				<Card style={{ margin: 30 }}>
 					<Text style={styles.text} e>
 						{bank.bank_name}
 					</Text>
@@ -75,7 +69,7 @@ const BankScreen = () => {
 					</Text>
 				</Card>
 			)}
-		</LinearGradient>
+		</View>
 	);
 };
 const styles = StyleSheet.create({
@@ -84,7 +78,8 @@ const styles = StyleSheet.create({
 		justifyContent    : 'space-between',
 		paddingVertical   : 100,
 		paddingHorizontal : 40,
-		alignItems        : 'flex-start'
+		alignItems        : 'flex-start',
+		backgroundColor   : Colours.primary
 	},
 	background  : {
 		position : 'absolute',
@@ -99,7 +94,7 @@ const styles = StyleSheet.create({
 		borderBottomColor : '#ccc',
 		borderBottomWidth : 2,
 		fontSize          : 20,
-		color             : Colours.secondary,
+		color             : '#fff',
 		width             : '100%'
 	},
 	formControl : {
