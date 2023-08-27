@@ -1,6 +1,5 @@
 import MainContainer from './navigation/MainContainer';
 import { View, Text } from 'react-native';
-import { secondary } from './Colours';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { useState } from 'react';
@@ -13,7 +12,6 @@ const fetchFonts = () => {
 };
 
 export default function App() {
-	Text.defaultProps.style = { fontFamily: 'EncodeSans' };
 	const [
 		fontLoaded,
 		setFontLoaded

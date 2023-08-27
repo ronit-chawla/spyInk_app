@@ -4,14 +4,11 @@ import {
 	TextInput,
 	View,
 	Text,
-	ScrollView,
 	FlatList
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import axios from 'axios';
-import moment from 'moment';
 import Colours from '../../Colours';
 
 const AlertScreen = () => {
@@ -112,13 +109,6 @@ const AlertScreen = () => {
 export default AlertScreen;
 
 const styles = StyleSheet.create({
-	background  : {
-		position : 'absolute',
-		left     : 0,
-		right    : 0,
-		top      : 0,
-		height   : '100%'
-	},
 	icon        : {
 		position : 'absolute',
 		left     : 120

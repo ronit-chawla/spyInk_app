@@ -10,8 +10,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Colours from '../../Colours';
 import Card from '../../components/Card';
-import { LinearGradient } from 'expo-linear-gradient';
-import moment from 'moment';
 
 const PeopleScreen = () => {
 	const [
@@ -74,27 +72,54 @@ const PeopleScreen = () => {
 								<Text style={styles.text} e>
 									{person.name}
 								</Text>
-								<Text style={styles.text}>
-									DOB: {person.birthday}
-								</Text>
-								<Text style={styles.text}>
-									Net Worth:
-									{person.net_worth}
-								</Text>
-								<Text style={styles.text}>
-									Gender: {person.gender}
-								</Text>
-								<Text style={styles.text}>
-									Nationality:{' '}
-									{person.nationality}
-								</Text>
-								<Text style={styles.text}>
-									Height: {person.height}
-								</Text>
-								<Text style={styles.text}>
-									Occupation:{' '}
-									{person.occupation.join(', ')}
-								</Text>
+								{person.birthday && (
+									<Text
+										style={styles.text}
+									>
+										DOB:{' '}
+										{person.birthday}
+									</Text>
+								)}
+								{person.net_worth && (
+									<Text
+										style={styles.text}
+									>
+										Net Worth:
+										{person.net_worth}
+									</Text>
+								)}
+								{person.gender && (
+									<Text
+										style={styles.text}
+									>
+										Gender:{' '}
+										{person.gender}
+									</Text>
+								)}
+								{person.nationality && (
+									<Text
+										style={styles.text}
+									>
+										Nationality:{' '}
+										{person.nationality}
+									</Text>
+								)}
+								{person.height && (
+									<Text
+										style={styles.text}
+									>
+										Height:{' '}
+										{person.height}
+									</Text>
+								)}
+								{person.occupation && (
+									<Text
+										style={styles.text}
+									>
+										Occupation:{' '}
+										{person.occupation.join(', ')}
+									</Text>
+								)}
 							</Card>
 						);
 					}}
@@ -111,13 +136,6 @@ const styles = StyleSheet.create({
 		paddingHorizontal : 40,
 		alignItems        : 'flex-start',
 		backgroundColor   : Colours.primary
-	},
-	background  : {
-		position : 'absolute',
-		left     : 0,
-		right    : 0,
-		top      : 0,
-		height   : '100%'
 	},
 	input       : {
 		paddingHorizontal : 2,

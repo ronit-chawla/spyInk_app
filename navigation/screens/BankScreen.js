@@ -9,7 +9,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Colours from '../../Colours';
 import Card from '../../components/Card';
-import { LinearGradient } from 'expo-linear-gradient';
 
 const BankScreen = () => {
 	const [
@@ -80,13 +79,6 @@ const styles = StyleSheet.create({
 		paddingHorizontal : 40,
 		alignItems        : 'flex-start',
 		backgroundColor   : Colours.primary
-	},
-	background  : {
-		position : 'absolute',
-		left     : 0,
-		right    : 0,
-		top      : 0,
-		height   : '100%'
 	},
 	input       : {
 		paddingHorizontal : 2,
