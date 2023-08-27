@@ -2,12 +2,12 @@ import {
 	View,
 	Text,
 	TextInput,
-	StyleSheet,
-	Button
+	StyleSheet
 } from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
 import Colours from '../../Colours';
+import Button from '../../components/Button';
 import Card from '../../components/Card';
 
 const VehicleScreen = () => {
@@ -46,12 +46,7 @@ const VehicleScreen = () => {
 					placeholder="Vehicle Identification Number"
 					placeholderTextColor="#aaa"
 				/>
-				<Button
-					title="Search"
-					color={Colours.highlight}
-					style={{ marginVertical: 40 }}
-					onPress={getVehicle}
-				/>
+				<Button onPress={getVehicle}>Search</Button>
 			</View>
 
 			{vehicle && (

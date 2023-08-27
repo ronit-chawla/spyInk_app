@@ -2,13 +2,13 @@ import {
 	View,
 	Text,
 	StyleSheet,
-	TextInput,
-	Button
+	TextInput
 } from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
 import Colours from '../../Colours';
 import Card from '../../components/Card';
+import Button from '../../components/Button';
 
 const GeocodeScreen = () => {
 	const [
@@ -57,12 +57,7 @@ const GeocodeScreen = () => {
 					placeholder="Longitude"
 					placeholderTextColor="#aaa"
 				/>
-				<Button
-					title="Search"
-					color={Colours.highlight}
-					style={{ marginVertical: 40 }}
-					onPress={getLoc}
-				/>
+				<Button onPress={getLoc}>Search</Button>
 			</View>
 
 			{loc && (

@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
 		backgroundColor   : Colours.secondary,
 		paddingVertical   : 12,
 		paddingHorizontal : 30,
-		borderRadius      : 25
+		borderRadius      : 25,
+		marginVertical    : 20
 	},
 	buttonText : {
 		color      : Colours.highlight,

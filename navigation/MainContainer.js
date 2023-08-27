@@ -119,6 +119,9 @@ function MainContainer() {
 								textStyle={{
 									color : '#f00'
 								}}
+								style={{
+									marginVertical: 0
+								}}
 								onPress={() => {
 									route.name === 'alert'
 										? navigation.navigate(

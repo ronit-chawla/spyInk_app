@@ -2,13 +2,13 @@ import {
 	View,
 	Text,
 	TextInput,
-	StyleSheet,
-	Button
+	StyleSheet
 } from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
 import Colours from '../../Colours';
 import Card from '../../components/Card';
+import Button from '../../components/Button';
 
 const BankScreen = () => {
 	const [
@@ -44,12 +44,7 @@ const BankScreen = () => {
 					placeholder="IBAN"
 					placeholderTextColor="#aaa"
 				/>
-				<Button
-					title="Search"
-					color={Colours.highlight}
-					style={{ marginVertical: 40 }}
-					onPress={getBank}
-				/>
+				<Button onPress={getBank}>Search</Button>
 			</View>
 
 			{bank && (

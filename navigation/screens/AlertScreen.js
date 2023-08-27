@@ -1,5 +1,4 @@
 import {
-	Button,
 	StyleSheet,
 	TextInput,
 	View,
@@ -9,6 +8,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import axios from 'axios';
+import Button from '../../components/Button';
 import Colours from '../../Colours';
 
 const AlertScreen = () => {
@@ -57,10 +57,11 @@ const AlertScreen = () => {
 					placeholderTextColor="#aaa"
 				/>
 				<Button
-					title="SEND"
-					color="#f00"
+					textStyle={{ color: '#f00' }}
 					onPress={sendAlert}
-				/>
+				>
+					SEND
+				</Button>
 			</View>
 			{alerts && (
 				<FlatList

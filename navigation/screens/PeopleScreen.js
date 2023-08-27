@@ -3,12 +3,12 @@ import {
 	Text,
 	TextInput,
 	StyleSheet,
-	Button,
 	FlatList
 } from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
 import Colours from '../../Colours';
+import Button from '../../components/Button';
 import Card from '../../components/Card';
 
 const PeopleScreen = () => {
@@ -53,12 +53,7 @@ const PeopleScreen = () => {
 					placeholder="Name"
 					placeholderTextColor="#aaa"
 				/>
-				<Button
-					title="Search"
-					color={Colours.highlight}
-					style={{ marginVertical: 40 }}
-					onPress={getPeople}
-				/>
+				<Button onPress={getPeople}>Search</Button>
 			</View>
 			{people && (
 				<FlatList
