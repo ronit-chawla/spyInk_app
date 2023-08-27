@@ -72,7 +72,7 @@ const GeocodeScreen = () => {
 				</View>
 			</View>
 			{loc && (
-				<Card style={{ marginBottom: 300 }}>
+				<Card style={{ marginBottom: 100 }}>
 					<Text style={styles.text} e>
 						{loc.name}
 					</Text>
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
 		width : '100%'
 	},
 	text        : {
-		fontSize  : 32,
+		fontSize  : 24,
 		textAlign : 'center',
 		color     : Colours.highlight
 	}
