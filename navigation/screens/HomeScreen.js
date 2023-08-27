@@ -1,9 +1,5 @@
-import {
-	View,
-	Image,
-	StyleSheet,
-	Button
-} from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
+import Button from '../../components/Button';
 import React from 'react';
 import Colours from '../../Colours';
 
@@ -15,9 +11,10 @@ const HomeScreen = ({ navigation }) => {
 				style={styles.img}
 			/>
 			<Button
-				title="Continue"
 				onPress={() => navigation.navigate('tab')}
-			/>
+			>
+				Continue
+			</Button>
 		</View>
 	);
 };
@@ -31,7 +28,8 @@ const styles = StyleSheet.create({
 		alignItems      : 'center'
 	},
 	btn    : {
-		color : Colours.highlight
+		color      : Colours.highlight,
+		fontFamily : 'EncodeSans'
 	},
 	img    : {
 		width  : 400,

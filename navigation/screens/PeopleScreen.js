@@ -150,9 +150,10 @@ const styles = StyleSheet.create({
 		width : '100%'
 	},
 	text        : {
-		fontSize  : 24,
-		textAlign : 'center',
-		color     : Colours.highlight
+		fontSize   : 24,
+		textAlign  : 'center',
+		color      : Colours.highlight,
+		fontFamily : 'EncodeSans'
 	}
 });
 export default PeopleScreen;
