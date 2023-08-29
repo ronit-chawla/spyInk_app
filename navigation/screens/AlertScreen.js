@@ -22,14 +22,16 @@ const AlertScreen = () => {
 	] = useState([]);
 	const getData = () => {
 		axios
-			.get('http://localhost:3000/')
+			.get(process.env.ALERT_API)
 			.then(res => setAlerts(res.data.alerts));
 
 		console.log(alerts);
 	};
 	const sendAlert = async () => {
 		console.log(msg);
-		await axios.post('http://localhost:3000/', { msg });
+		await axios.post(process.env.ALERT_API, {
+			msg
+		});
 		getData();
 	};
 	getData();

@@ -25,14 +25,12 @@ const GeocodeScreen = () => {
 	] = useState();
 
 	const getLoc = async () => {
-		const {
-			data
-		} = await axios.get(
-			`https://api.api-ninjas.com/v1/reversegeocoding?lat=${lat}&lon=${lng}`,
+		const { data } = await axios.get(
+			`${process.env
+				.API}reversegeocoding?lat=${lat}&lon=${lng}`,
 			{
 				headers : {
-					'X-Api-Key' :
-						'kxX+8efYKTRblngBJqQ3Og==erYQLVHPT3F8jNgM'
+					'X-Api-Key' : process.env.API_KEY
 				}
 			}
 		);

@@ -10,9 +10,9 @@ export default function App() {
 	] = useFonts({
 		EncodeSans : require('./assets/fonts/EncodeSans_Expanded-Regular.ttf')
 	});
-	// If Device.deviceType === 0 -> The app is running on an UNKNOWN DEVICE
-	// Our Device being a spy tool is unknown and therefore using this we can check whether the device is authorised
-	// For now we'll check if Device.deviceType === 1 -> The app is running on a PHONE
+	// Device.deviceType gives a numerical value representing the type of device which the app is running on
+	// using this we will check wheher it is om our device or not
+	// For now we'll check if Device.deviceType === 1 -> The app is running on a PHONE to simulate the functionality
 	return (
 		<View
 			style={{

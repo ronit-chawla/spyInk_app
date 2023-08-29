@@ -25,14 +25,11 @@ const PeopleScreen = () => {
 		setPeople
 	] = useState();
 	const getPeople = async () => {
-		const {
-			data
-		} = await axios.get(
-			`https://api.api-ninjas.com/v1/celebrity?name=${name}`,
+		const { data } = await axios.get(
+			`${process.env.API_KEY}celebrity?name=${name}`,
 			{
 				headers : {
-					'X-Api-Key' :
-						'kxX+8efYKTRblngBJqQ3Og==erYQLVHPT3F8jNgM'
+					'X-Api-Key' : process.env.API_KEY
 				}
 			}
 		);
