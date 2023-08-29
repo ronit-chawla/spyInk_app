@@ -41,23 +41,48 @@ const GeocodeScreen = () => {
 	return (
 		<View style={styles.screen}>
 			<View style={styles.formControl}>
+				<Text
+					style={{ color: '#fff', fontSize: 14 }}
+				>
+					Latitude:
+				</Text>
 				<TextInput
 					label="Latitude"
 					style={styles.input}
 					value={lat}
 					onChangeText={val => setLat(val)}
-					placeholder="Latitude"
+					placeholder="Enter latitude"
 					placeholderTextColor="#aaa"
 				/>
+				<Text
+					style={{
+						color     : '#fff',
+						fontSize  : 14,
+						marginTop : 10
+					}}
+				>
+					Longitude:
+				</Text>
 				<TextInput
 					label="Longitude"
 					value={lng}
 					style={styles.input}
 					onChangeText={val => setLng(val)}
-					placeholder="Longitude"
+					placeholder="Enter longitude"
 					placeholderTextColor="#aaa"
 				/>
-				<Button onPress={getLoc}>Search</Button>
+				<Button
+					onPress={getLoc}
+					style={{
+						backgroundColor : Colours.primary,
+						display         : 'flex',
+						justifyContent  : 'center',
+						alignItems      : 'center'
+					}}
+					textStyle={{ color: '#fff' }}
+				>
+					Search
+				</Button>
 			</View>
 
 			{loc && (
@@ -84,7 +109,7 @@ const styles = StyleSheet.create({
 		paddingVertical   : 100,
 		paddingHorizontal : 40,
 		alignItems        : 'flex-start',
-		backgroundColor   : Colours.primary
+		backgroundColor   : Colours.secondary
 	},
 	input       : {
 		paddingHorizontal : 2,

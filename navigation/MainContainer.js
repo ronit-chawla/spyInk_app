@@ -22,26 +22,24 @@ const Stack = createStackNavigator();
 function TabNav() {
 	return (
 		<Tab.Navigator
-			tabBarActiveTintColor="#fff"
-			tabBarInactiveTintColor={Colours.secondary}
 			initialRouteName="People"
 			screenOptions={({ route }) => ({
-				headerShown     : false,
-				labelStyle      : {
+				tabBarActiveTintColor   : '#fff',
+				tabBarInactiveTintColor : '#aaa',
+				headerShown             : false,
+				labelStyle              : {
 					paddingBottom : 7,
 					fontSize      : 10
 				},
-				style           : {
-					padding         : 10,
-					backgroundColor : Colours.secondary,
-					height          : '1%'
+				style                   : {
+					padding : 10,
+					height  : '1%'
 				},
-				tabBarStyle     : {
-					backgroundColor : Colours.secondary,
+				tabBarStyle             : {
+					backgroundColor : Colours.primary,
 					height          : '10%'
 				},
-				backgroundColor : Colours.secondary,
-				tabBarIcon      : ({
+				tabBarIcon              : ({
 					focused,
 					color,
 					size
@@ -111,33 +109,52 @@ function MainContainer() {
 										? Colours.secondary
 										: Colours.secondary,
 								paddingHorizontal : 40,
-								paddingTop        : 50,
-								paddingBottom     : 20
+								paddingTop        : 20,
+								display           : 'flex'
 							}}
 						>
-							<Button
-								textStyle={{
-									color : '#f00'
-								}}
-								style={{
-									marginVertical: 0
-								}}
-								onPress={() => {
-									route.name === 'alert'
-										? navigation.navigate(
-												'home'
-											)
-										: navigation.navigate(
-												'alert'
-											);
-								}}
-							>
-								{route.name === 'alert' ? (
-									'HOME'
-								) : (
-									'ALERT'
-								)}
-							</Button>
+							{route.name === 'alert' ? (
+								<Button
+									textStyle={{
+										color : '#fff'
+									}}
+									style={{
+										padding : 0
+									}}
+									onPress={() => {
+										navigation.navigate(
+											'home'
+										);
+									}}
+								>
+									<Ionicons
+										name="ios-home"
+										size={30}
+										color="white"
+									/>
+								</Button>
+							) : (
+								<Button
+									textStyle={{
+										color : '#fff'
+									}}
+									style={{
+										marginVertical : 0,
+										marginVertical : 20
+									}}
+									onPress={() => {
+										navigation.navigate(
+											'alert'
+										);
+									}}
+								>
+									<Ionicons
+										name="notifications"
+										size={30}
+										color="white"
+									/>
+								</Button>
+							)}
 						</View>
 					)
 				}}

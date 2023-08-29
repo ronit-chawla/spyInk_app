@@ -12,6 +12,11 @@ const HomeScreen = ({ navigation }) => {
 			/>
 			<Button
 				onPress={() => navigation.navigate('tab')}
+				style={{
+					backgroundColor : Colours.primary,
+					marginVertical  : 10
+				}}
+				textStyle={{ color: '#fff' }}
 			>
 				Continue
 			</Button>

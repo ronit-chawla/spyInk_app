@@ -11,6 +11,10 @@ import Colours from '../../Colours';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
 
+const toSentenceCase = str =>
+	str.toLowerCase().charAt(0).toUpperCase() +
+	str.slice(1);
+
 const PeopleScreen = () => {
 	const [
 		name,
@@ -45,15 +49,31 @@ const PeopleScreen = () => {
 		// >
 		<View style={styles.screen}>
 			<View style={styles.formControl}>
+				<Text
+					style={{ color: '#fff', fontSize: 14 }}
+				>
+					Name:
+				</Text>
 				<TextInput
 					label="Name"
 					style={styles.input}
 					value={name}
 					onChangeText={val => setName(val)}
-					placeholder="Name"
+					placeholder="Enter name"
 					placeholderTextColor="#aaa"
 				/>
-				<Button onPress={getPeople}>Search</Button>
+				<Button
+					onPress={getPeople}
+					style={{
+						backgroundColor : Colours.primary,
+						display         : 'flex',
+						justifyContent  : 'center',
+						alignItems      : 'center'
+					}}
+					textStyle={{ color: '#fff' }}
+				>
+					Search
+				</Button>
 			</View>
 			{people && (
 				<FlatList
@@ -64,8 +84,18 @@ const PeopleScreen = () => {
 							<Card
 								style={{ marginBottom: 10 }}
 							>
-								<Text style={styles.text} e>
-									{person.name}
+								<Text
+									style={{
+										...styles.text,
+										color      : '#fff',
+										fontSize   : 28,
+										fontWeight : 900
+									}}
+									e
+								>
+									{toSentenceCase(
+										person.name
+									)}
 								</Text>
 								{person.birthday && (
 									<Text
@@ -79,7 +109,7 @@ const PeopleScreen = () => {
 									<Text
 										style={styles.text}
 									>
-										Net Worth:
+										Net Worth:{' '}
 										{person.net_worth}
 									</Text>
 								)}
@@ -130,7 +160,7 @@ const styles = StyleSheet.create({
 		paddingVertical   : 100,
 		paddingHorizontal : 40,
 		alignItems        : 'flex-start',
-		backgroundColor   : Colours.primary
+		backgroundColor   : Colours.secondary
 	},
 	input       : {
 		paddingHorizontal : 2,

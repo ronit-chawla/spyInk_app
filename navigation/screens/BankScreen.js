@@ -36,15 +36,31 @@ const BankScreen = () => {
 	return (
 		<View style={styles.screen}>
 			<View style={styles.formControl}>
+				<Text
+					style={{ color: '#fff', fontSize: 14 }}
+				>
+					IBAN:
+				</Text>
 				<TextInput
 					label="IBAN"
 					style={styles.input}
 					value={IBAN}
 					onChangeText={val => setIBAN(val)}
-					placeholder="IBAN"
+					placeholder="Enter IBAN"
 					placeholderTextColor="#aaa"
 				/>
-				<Button onPress={getBank}>Search</Button>
+				<Button
+					onPress={getBank}
+					style={{
+						backgroundColor : Colours.primary,
+						display         : 'flex',
+						justifyContent  : 'center',
+						alignItems      : 'center'
+					}}
+					textStyle={{ color: '#fff' }}
+				>
+					Search
+				</Button>
 			</View>
 
 			{bank && (
@@ -73,7 +89,7 @@ const styles = StyleSheet.create({
 		paddingVertical   : 100,
 		paddingHorizontal : 40,
 		alignItems        : 'flex-start',
-		backgroundColor   : Colours.primary
+		backgroundColor   : Colours.secondary
 	},
 	input       : {
 		paddingHorizontal : 2,

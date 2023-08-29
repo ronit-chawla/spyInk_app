@@ -36,7 +36,7 @@ const AlertScreen = () => {
 	return (
 		<View
 			style={{
-				backgroundColor : Colours.primary,
+				backgroundColor : Colours.secondary,
 				flex            : 1
 			}}
 		>
@@ -44,7 +44,7 @@ const AlertScreen = () => {
 				<Ionicons
 					name="warning-outline"
 					size={200}
-					color={Colours.highlight}
+					color="#f00"
 				/>
 			</View>
 			<View style={styles.formControl}>
@@ -57,7 +57,11 @@ const AlertScreen = () => {
 					placeholderTextColor="#aaa"
 				/>
 				<Button
-					textStyle={{ color: '#f00' }}
+					textStyle={{ color: '#fff' }}
+					style={{
+						backgroundColor : Colours.primary,
+						width           : '80%'
+					}}
 					onPress={sendAlert}
 				>
 					SEND
@@ -92,8 +96,7 @@ const AlertScreen = () => {
 								</Text>
 								<Text
 									style={{
-										color :
-											Colours.highlight
+										color : '#aaa'
 									}}
 								>
 									{alert.date}
@@ -125,8 +128,10 @@ const styles = StyleSheet.create({
 		width             : '80%'
 	},
 	formControl : {
-		width    : '95%',
-		position : 'absolute',
-		top      : 225
+		width      : '95%',
+		position   : 'absolute',
+		top        : 225,
+		display    : 'flex',
+		alignItems : 'center'
 	}
 });
