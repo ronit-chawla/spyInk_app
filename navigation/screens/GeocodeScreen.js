@@ -9,6 +9,7 @@ import axios from 'axios';
 import Colours from '../../Colours';
 import Card from '../../components/Card';
 import Button from '../../components/Button';
+import env from '../../env';
 
 const GeocodeScreen = () => {
 	const [
@@ -25,12 +26,13 @@ const GeocodeScreen = () => {
 	] = useState();
 
 	const getLoc = async () => {
-		const { data } = await axios.get(
-			`${process.env
-				.API}reversegeocoding?lat=${lat}&lon=${lng}`,
+		const {
+			data
+		} = await axios.get(
+			`${env.API}reversegeocoding?lat=${lat}&lon=${lng}`,
 			{
 				headers : {
-					'X-Api-Key' : process.env.API_KEY
+					'X-Api-Key' : env.API_KEY
 				}
 			}
 		);

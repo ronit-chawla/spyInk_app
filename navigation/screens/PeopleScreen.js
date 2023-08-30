@@ -10,6 +10,7 @@ import axios from 'axios';
 import Colours from '../../Colours';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
+import env from '../../env';
 
 const toSentenceCase = str =>
 	str.toLowerCase().charAt(0).toUpperCase() +
@@ -25,11 +26,13 @@ const PeopleScreen = () => {
 		setPeople
 	] = useState();
 	const getPeople = async () => {
-		const { data } = await axios.get(
-			`${process.env.API_KEY}celebrity?name=${name}`,
+		const {
+			data
+		} = await axios.get(
+			`${env.API_KEY}celebrity?name=${name}`,
 			{
 				headers : {
-					'X-Api-Key' : process.env.API_KEY
+					'X-Api-Key' : env.API_KEY
 				}
 			}
 		);

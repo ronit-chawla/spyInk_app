@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Button from '../../components/Button';
 import Colours from '../../Colours';
+import env from '../../env';
 
 const AlertScreen = () => {
 	const [
@@ -22,14 +23,14 @@ const AlertScreen = () => {
 	] = useState([]);
 	const getData = () => {
 		axios
-			.get(process.env.ALERT_API)
+			.get(env.ALERT_API)
 			.then(res => setAlerts(res.data.alerts));
 
 		console.log(alerts);
 	};
 	const sendAlert = async () => {
 		console.log(msg);
-		await axios.post(process.env.ALERT_API, {
+		await axios.post(env.ALERT_API, {
 			msg
 		});
 		getData();

@@ -9,6 +9,7 @@ import axios from 'axios';
 import Colours from '../../Colours';
 import Card from '../../components/Card';
 import Button from '../../components/Button';
+import env from '../../env';
 
 const BankScreen = () => {
 	const [
@@ -20,14 +21,13 @@ const BankScreen = () => {
 		setBank
 	] = useState();
 	const getBank = async () => {
-		const { data } = await axios.get(
-			`${process.env.API}iban?iban=${IBAN}`,
-			{
-				headers : {
-					'X-Api-Key' : process.env.API_KEY
-				}
+		const {
+			data
+		} = await axios.get(`${env.API}iban?iban=${IBAN}`, {
+			headers : {
+				'X-Api-Key' : env.API_KEY
 			}
-		);
+		});
 		setBank(data);
 	};
 	return (
